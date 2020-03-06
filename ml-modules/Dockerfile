@@ -26,9 +26,9 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86
 WORKDIR /opt
 
 RUN wget --quiet https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -O spark.tgz \
-    && tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
+    && tar -xvzf spark.tgz \
     && mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark \
-    && rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+    && rm spark.tgz
 
 RUN mkdir $KAFKA_HOME \
     && wget --quiet https://downloads.apache.org/kafka/2.4.0/kafka_2.12-2.4.0.tgz -O $KAFKA_HOME/kafka.tgz \
