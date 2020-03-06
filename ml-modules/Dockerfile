@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 
 ARG KAFKA_HOME=/opt/kafka
+ARG SPARK_HOME=/opt/spark
 
 ENV PATH "/opt/spark/bin:/opt/conda/bin:$PATH"
 ENV SPARK_VERSION=2.4.4
@@ -22,7 +23,9 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.5.12-Linux-x86
     && /opt/conda/bin/conda clean -tipsy \
     && ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 
-RUN wget --quiet https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
+WORKDIR /opt
+
+RUN wget --quiet https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -O spark.tgz \
     && tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
     && mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark \
     && rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
