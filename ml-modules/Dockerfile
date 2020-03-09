@@ -38,6 +38,6 @@ RUN wget --quiet https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_2.12-
 RUN conda install -y python==3.7.4 \
     && pip install confluent-kafka==1.3.0 \
     && pip install h2o==3.28.0.2 \
-    && pip numpy==1.17.0
+    && pip install numpy==1.17.0
 
 RUN apt-get install -yqq openjdk-8-jdk
