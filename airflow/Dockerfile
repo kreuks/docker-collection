@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 ARG AIRFLOW_HOME=/usr/local/airflow
 
-ENV PATH "/opt/conda/bin:$PATH"
+ENV PATH "/opt/conda/envs/airflow/bin:/opt/conda/bin:$PATH"
 ENV LANG C.UTF-8
 
 RUN apt-get update -yqq \
