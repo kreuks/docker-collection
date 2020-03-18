@@ -35,6 +35,8 @@ RUN wget --quiet https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_2.12-
     && mv kafka_2.12-${KAFKA_VERSION} kafka \
     && rm kafka.tgz
 
+COPY ml-modules/connect-log4j.properties $KAFKA_HOME/config/
+
 RUN conda install -y python==3.7.4 \
     && pip install confluent-kafka==1.3.0 \
     && pip install h2o==3.28.0.2 \
