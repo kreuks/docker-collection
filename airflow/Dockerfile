@@ -13,6 +13,7 @@ RUN apt-get update -yqq \
         vim \
         wget \
         libpq-dev \
+        ssh \
         docker.io
 
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh \
