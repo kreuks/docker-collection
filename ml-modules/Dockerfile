@@ -43,4 +43,4 @@ RUN conda install -y python==3.7.4 \
     && pip install numpy==1.17.0 \
     && pip install oss2==2.9.1
 
-RUN apt-get install -yqq openjdk-8-jdk
+RUN apt-get update && apt-get install -yqq openjdk-8-jdk
