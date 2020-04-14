@@ -12,3 +12,4 @@ dependencies:
   - Werkzeug==0.16.1
   - confluent-kafka==1.3.0
   - dacite==1.2.0
+  - oss2==2.9.1
