@@ -28,3 +28,11 @@ RUN conda env update -f ${AIRFLOW_HOME}/environment.yml
 RUN curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" \
     -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
+
+RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-297.0.0-linux-x86_64.tar.gz -O ~/gcloud.tar.gz \
+    && tar xvf ~/gcloud.tar.gz -C ~/ \
+    && rm -rf ~/gcloud.tar.gz \
+    && bash ~/google-cloud-sdk/install.sh -q
+
+RUN echo "source /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc \
+    && echo "source /root/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc

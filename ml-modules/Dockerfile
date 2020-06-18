@@ -41,6 +41,7 @@ RUN conda install -y python==3.7.4 \
     && pip install confluent-kafka==1.3.0 \
     && pip install h2o==3.28.0.2 \
     && pip install numpy==1.17.0 \
-    && pip install oss2==2.9.1
+    && pip install oss2==2.9.1 \
+    && pip install --upgrade google-cloud-storage
 
 RUN apt-get update -yqq && apt-get install -yqq openjdk-8-jdk
