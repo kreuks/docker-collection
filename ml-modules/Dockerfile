@@ -28,7 +28,8 @@ WORKDIR /opt
 RUN wget --quiet https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -O spark.tgz \
     && tar -xvzf spark.tgz \
     && mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark \
-    && rm spark.tgz
+    && rm spark.tgz \
+    && wget --quiet https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop2-latest.jar -O /opt/spark/jars/gcs-connector-hadoop2-latest.jar
 
 RUN wget --quiet https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_2.12-${KAFKA_VERSION}.tgz -O kafka.tgz \
     && tar -xzvf kafka.tgz \
