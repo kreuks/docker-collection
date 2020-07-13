@@ -34,5 +34,9 @@ RUN wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud
     && rm -rf ~/gcloud.tar.gz \
     && bash ~/google-cloud-sdk/install.sh -q
 
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
+
 RUN echo "source /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc \
     && echo "source /root/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc
