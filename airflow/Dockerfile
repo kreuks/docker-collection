@@ -40,5 +40,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
 
 RUN echo "source /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc \
     && echo "source /root/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc \
-    && ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
+    && ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud \
     && ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gsutil
