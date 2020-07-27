@@ -42,3 +42,13 @@ RUN echo "source /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc \
     && echo "source /root/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc \
     && ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud \
     && ln -s /root/google-cloud-sdk/bin/gcloud /usr/local/bin/gsutil
+
+RUN git clone https://github.com/GoogleCloudPlatform/spark-on-k8s-operator \
+    && wget https://golang.org/dl/go1.14.6.linux-amd64.tar.gz -O go.tar.gz \
+    && tar xvf go.tar.gz \
+    && mv go/bin/go spark-on-k8s-operator/sparkctl && rm -r go/ \
+    && cd spark-on-k8s-operator/sparkctl \
+    && ./go build -o sparkctl \
+    && chmod +x sparkctl \
+    && mv sparkctl /usr/local/bin/sparkctl \
+    && cd ../../ && rm -r spark-on-k8s-operator
